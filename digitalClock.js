@@ -1,15 +1,30 @@
-function showTime(){
-    let date = new Date();
-    let h = date.getHours();
-    let m = date.getMinutes();
-    let s = date.getSeconds();
+let clock = new Vue({
+    el:'#clock',
+    data:{
+        time = '', //has to be the same name in the html file
+        date = ''
+    }
+});
 
-    let time = h + ":" + m + ":" + s;
+let week = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+let timerID = setInterval(updateTime,1000);
+updateTime();
 
-    document.getElementById("clockDisplay").innerText = time;
-    document.getElementById("clockDisplay").textContent = time;
-
-    setTimeout(showTime,1000);
+function updateTime(){
+    let mDate = new Date(); //gets the current date
+    //modifies the vue value of data directly in clock object
+    clock.time = zeroPad(mDate.getHours(),2) + ':'
+                + zeroPad(mDate.getMinutes(),2) + ':'
+                + zeroPad(mDate.getSeconds(),2);
+    clock.date = zeroPad(mDate.getFullYear(),4) + '-'
+                + zeroPad(mDate.getMonth()+1,2) + '-'
+                + zeroPad(mDate.getDate(),2) + ' ' + week[mDate.getDay()];
 }
 
-showTime();
+function zeroPad(num, digit){
+    let zero = '';
+    for(let i=0; i<digit; i++){
+        zero += '0';
+    }
+    return (zero + num).slice(-digit);
+}
