@@ -2,7 +2,8 @@ let clock = new Vue({
     el: '#clock',
     data: {
         time: '',
-        date: ''
+        date: '',
+        message: 'Peut mieux faire ;)'
     }
 });
 
