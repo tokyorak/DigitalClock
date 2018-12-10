@@ -1,8 +1,8 @@
 let clock = new Vue({
-    el:'#clock',
-    data:{
-        time = '', //has to be the same name in the html file
-        date = ''
+    el: '#clock',
+    data: {
+        time: '',
+        date: ''
     }
 });
 
