@@ -11,7 +11,7 @@ p{
     padding: 0;
 }
 #clock{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: monospace;
     color:#ffffff;
     text-align:center;
     position: absolute;
